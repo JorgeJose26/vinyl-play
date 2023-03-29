@@ -1,5 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import {
+    MDBCard,
+    MDBCardTitle,
+    MDBCardText,
+    MDBCardBody,
+    MDBCardImage,
+    MDBRow,
+    MDBCol,
+    MDBContainer
+} from 'mdb-react-ui-kit';
 
 const Vinyls = () => {
     const [vinyls, setVinyls] = useState([])
@@ -58,7 +69,7 @@ const Vinyls = () => {
     const genres = ['Rock', 'Electronic', 'Jazz', 'Funk / Soul', 'Pop', 'Classical', 'Hip Hop', 'Reggae', 'Latin']
 
     return (
-        <div>
+        <>
             <h1>Vinyls</h1>
             <button onClick={shuffleVinyls}>Shuffle</button>
             <div>
@@ -67,17 +78,37 @@ const Vinyls = () => {
                 ))}
                 <button onClick={() => handleGenreFilter(null)}>Clear Filter</button>
             </div>
-            <ul>
-                {vinyls.map(vinyl => (
-                    <li key={vinyl.id}>
-                        <img src={vinyl.image} alt={vinyl.album} />
-                        <p>{vinyl.artist}</p>
-                        <p>{vinyl.album}</p>
-                        <p>{vinyl.releaseDate}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+
+
+            <MDBContainer className='mt-12'>
+                <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
+
+                    {vinyls.map(vinyl => (
+                        <MDBCol>
+                            <MDBCard className='w-100 h-100 p-4' key={vinyl.id} style={{ maxWidth: '540px' }}>
+                                <MDBRow className='g-0'>
+                                    <MDBCol md='4'>
+                                        <MDBCardImage src={vinyl.image} alt={vinyl.album} fluid />
+                                    </MDBCol>
+                                    <MDBCol md='8'>
+                                        <MDBCardBody>
+                                            <MDBCardTitle>{vinyl.artist}</MDBCardTitle>
+                                            <MDBCardText>
+                                                {vinyl.album}
+                                            </MDBCardText>
+                                            <MDBCardText>
+                                                <small className='text-muted'>{vinyl.releaseDate}</small>
+                                            </MDBCardText>
+                                        </MDBCardBody>
+                                    </MDBCol>
+                                </MDBRow>
+                            </MDBCard>
+                        </MDBCol>
+                    ))}
+                </MDBRow>
+            </MDBContainer>
+
+        </>
     )
 }
 
