@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import NavBar from '@/components/layouts/navBar';
 import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import {
     MDBCard,
@@ -69,8 +70,12 @@ const Vinyls = () => {
     const genres = ['Rock', 'Electronic', 'Jazz', 'Funk / Soul', 'Pop', 'Classical', 'Hip Hop', 'Reggae', 'Latin']
 
     return (
+
         <>
-            <h1>Vinyls</h1>
+            <NavBar />
+
+
+
             <button onClick={shuffleVinyls}>Shuffle</button>
             <div>
                 {genres.map(genre => (
