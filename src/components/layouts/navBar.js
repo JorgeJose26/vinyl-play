@@ -24,7 +24,7 @@ function NavBar(props) {
     return (
         <MDBNavbar expand='lg' light bgColor='light'>
             <MDBContainer fluid>
-                <MDBNavbarBrand href='#'>VinylBoi</MDBNavbarBrand>
+                <MDBNavbarBrand href='/'>VinylBoi</MDBNavbarBrand>
 
                 <MDBNavbarToggler
                     aria-controls='navbarSupportedContent'
@@ -38,12 +38,12 @@ function NavBar(props) {
                 <MDBCollapse navbar show={showBasic}>
                     <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
                         <MDBNavbarItem>
-                            <MDBNavbarLink active aria-current='page' href='#'>
+                            <MDBNavbarLink active aria-current='page' href='/'>
                                 Home
                             </MDBNavbarLink>
                         </MDBNavbarItem>
                         <MDBNavbarItem>
-                            <MDBNavbarLink href='#'>Collection</MDBNavbarLink>
+                            <MDBNavbarLink href='/collections'>Collection</MDBNavbarLink>
                         </MDBNavbarItem>
 
                         <MDBNavbarItem>
